@@ -5,7 +5,7 @@ permissions:
       id-token: write
       contents: read
 env:
-  regsistryName: ${{ vars.REGISTRY_NAME }}
+  registryName: ${{ vars.REGISTRY_NAME }}
   repositoryName: ${{ vars.REPOSITORY_NAME }}
   tag: ${{ vars.TAG }}
 

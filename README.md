@@ -14,7 +14,7 @@ In order to use the workflow, you will need to:
 - Fork this repository into your personal account
 - Allow GitHub Actions to connect to Azure via an Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process [here](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
 - Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
-- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name, your preferred repository name, and your preferred tag for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
+- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
 
 ## Utilizing the Created Image Within ADE
 Once you have set up your repository and ran the 'build-and-push-image' workflow, you'll simply need to update your environment definition's manifest file (environment.yaml or manifest.yaml) and specify the created image as the definition's 'runner' property, shown below:

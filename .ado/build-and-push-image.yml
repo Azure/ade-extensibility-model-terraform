@@ -1,0 +1,27 @@
+trigger:
+- none  # Adjust this based on your requirements, e.g., 'main' to trigger on main branch commits
+
+pr:
+- none  # Adjust this to enable pull request triggers if needed
+
+variables:
+  serviceConnectionACR: pwe2devopsacr
+  repositoryName: terraformADEmodel
+
+jobs:
+- job: build_and_push_image
+  displayName: 'Build and Push Docker Image'
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+    - task: Docker@2
+      displayName: 'Build & Push'
+      inputs:
+        containerRegistry: ${{variables.serviceConnectionACR}}
+        repository: ${{variables.repositoryName}}
+        Dockerfile: '**/Dockerfile'
+        command: 'buildAndPush'
+        tags: |
+          latest
+          $(Build.BuildId)

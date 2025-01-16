@@ -7,7 +7,23 @@ An Environment is a collection of Azure resources on which your application is d
 
 One of ADE's newest features is its extensibility model, which allows customers to develop their own container images to deploy their infrastructure templates, allowing for customization of their deployment to use any type of Infrastructure-as-Code framework and perform additional operations to aid deployment or deletion of a customer's environment. Documentation for this new feature can be found [here](https://learn.microsoft.com/en-us/azure/deployment-environments/how-to-configure-extensibility-generic-container-image).
 
-This repository offers sample code for leveraging the new extensibility model feature with the Terraform CLI inside a customer's own container image, as well as offering a GitHub Action for customers to build and push an image to a provided Azure Container Registry (ACR). Customers can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image. 
+This repository offers sample code for leveraging the new extensibility model feature with the Terraform CLI inside a customer's own container image, as well as offering a GitHub Action for customers to build and push an image to a provided Azure Container Registry (ACR). Customers can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
+
+## Using the Quickstart Powershell Script
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+- Fork this repository into your personal account
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables
+- Ensure you have permissions to push images to your selected Azure Container Registry
+
+To push the sample image to your registry with the ACR image link "{YOUR_REGISTRY_NAME}/ade:latest", run the following command:
+```powershell
+.\quickstart-image.build.ps1 -Registry 'YOUR_REGISTRY' -Directory .
+```
+
+To push the sample image to your registry with a specific repository and tag name, you can run:
+```powershell
+.\quickstart-image-build.ps1 -Registry 'YOUR_REGISTRY' -Directory . -Repository 'YOUR_REPOSITORY' -Tag 'YOUR_TAG'
+```
 
 ## GitHub Action Prerequisites
 In order to use the workflow, you will need to:

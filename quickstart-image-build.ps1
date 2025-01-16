@@ -4,8 +4,6 @@
 param (
     [string] $Registry,
 
-    [string] $Directory,
-
     [string] $Repository = "ade",
     
     [string] $Tag = "latest"
@@ -27,7 +25,7 @@ if (!$?) {
 }
 
 Write-Host "Building Docker Image"
-docker build -t "${Registry}.azurecr.io/${Repository}:${Tag}" $Directory
+docker build -t "${Registry}.azurecr.io/${Repository}:${Tag}" .
 
 if (!$?) {
     Write-Error "Failed to build specified Docker Image. Please check the logs for more details."

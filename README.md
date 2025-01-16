@@ -17,14 +17,14 @@ To use the quickstart script to quickly build and push this sample image to an A
 
 To push the sample image to your registry with the ACR image link "{YOUR_REGISTRY_NAME}/ade:latest", run the following command:
 ```powershell
-.\quickstart-image.build.ps1 -Registry 'YOUR_REGISTRY' -Directory .
+.\quickstart-image.build.ps1 -Registry 'YOUR_REGISTRY'
 ```
 
 To push the sample image to your registry with a specific repository and tag name, you can run:
 ```powershell
-.\quickstart-image-build.ps1 -Registry 'YOUR_REGISTRY' -Directory . -Repository 'YOUR_REPOSITORY' -Tag 'YOUR_TAG'
+.\quickstart-image-build.ps1 -Registry 'YOUR_REGISTRY' -Repository 'YOUR_REPOSITORY' -Tag 'YOUR_TAG'
 ```
-
+If you're running into issues with logging into your Azure Container Registry and you have the correct permissions, you may need to restart the Docker Engine in order for the script to work. 
 ## GitHub Action Prerequisites
 In order to use the workflow, you will need to:
 - Fork this repository into your personal account

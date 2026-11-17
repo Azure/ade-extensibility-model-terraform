@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: 'Az CLI login'
-      uses: azure/login@7184910d9eb2b1c5e48f7073824a90609bb9b6d6 # v2.3.1
+      uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
       with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -26,7 +26,7 @@ jobs:
     - name: 'Login to Specified ACR'
       run: az acr login -n $registryName
       
-    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Build the Docker Image
       run: docker build . --file Dockerfile --tag "$registryName.azurecr.io/$repositoryName:$tag"
 
